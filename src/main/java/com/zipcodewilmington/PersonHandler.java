@@ -9,39 +9,46 @@ public class PersonHandler {
     public PersonHandler(Person[] personArray) {
         this.personArray = personArray;
     }
-
-    // NOTICE how the comments can be used to step-by-step break down the problem into 
-    // simple lines of code...
     
     public String whileLoop() {
+
+
         String result = "";
         // create a `counter`
+        int countLoops = 0;
+
         // while `counter` is less than length of array
-            // begin loop
+        while (countLoops < this.personArray.length) {
 
-                // use `counter` to identify the `current Person` in the array
-                // get `string Representation` of `currentPerson`
-                // append `stringRepresentation` to `result` variable
-
+            // use `counter` to identify the `current Person` in the array
+            Person currentPersonStr = this.personArray[countLoops];
+            // append `stringRepresentation` to `result` variable
+            result = String.format("%s%s", result, currentPersonStr);
             // end loop
+            countLoops++;
+        }
         return result;
     }
 
 
 
     public String forLoop() {
+
         String result = "";
-        // identify initial value
-        // identify terminal condition
-        // identify increment
+
+        // identify initial value - 0
+        // identify terminal condition - i < array length
+        // identify increment - by 1
 
         // use the above clauses to declare for-loop signature
-            // begin loop
-                // use `counter` to identify the `current Person` in the array
-                // get `string Representation` of `currentPerson`
-                // append `stringRepresentation` to `result` variable
-            // end loop
+        for (int i = 0; i < this.personArray.length; i++) {
 
+            // use `counter` to identify the `current Person` in the array
+            Person currentPerson = this.personArray[i];
+            // get `string Representation` of `currentPerson`
+            result = String.format("%s%s", result, currentPerson);
+        }
+        // end loop
         return result;
     }
 
@@ -49,15 +56,15 @@ public class PersonHandler {
 
     public String forEachLoop() {
         String result = "";
-        // identify array's type
-        // identify array's variable-name
+        // identify array's type - Person
+        // identify array's variable-name - person
 
         // use the above discoveries to declare for-each-loop signature
-            // begin loop
-                // get `string Representation` of `currentPerson`
-                // append `stringRepresentation` to `result` variable
-            // end loop
-
+        for ( Person person : this.personArray ) {
+            // get `string Representation` of `currentPerson`
+            // append `stringRepresentation` to `result` variable
+            result = String.format("%s%s", result, person);
+        }
         return result;
     }
 
